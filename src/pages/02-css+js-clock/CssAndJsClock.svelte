@@ -1,7 +1,6 @@
 <script type="ts">
     import { onMount } from 'svelte';
-    const handClass =
-        'h-[6px] absolute top-0 bottom-0 left-0 m-auto w-1/2 origin-[100%] rotate-90 ease-[cubic-bezier(0.1,2.7,0.58,1)]';
+    const handClass = 'h-[6px] absolute top-0 bottom-0 left-0 m-auto w-1/2 origin-[100%] rotate-90';
 
     onMount(() => {
         const secondHand = document.querySelector('#second-hand') as HTMLElement;
