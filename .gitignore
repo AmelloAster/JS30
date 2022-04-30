@@ -8,12 +8,14 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+.VSCodeCounter
 dist
 dist-ssr
 *.local
 
 # Editor directories and files
 .vscode/*
+.VSCodeCounter/*
 !.vscode/extensions.json
 .idea
 .DS_Store

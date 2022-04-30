@@ -31,6 +31,7 @@
     "vite": "^2.9.5"
   },
   "dependencies": {
+    "classnames": "^2.3.1",
     "svelte-navigator": "^3.1.5"
   }
 }

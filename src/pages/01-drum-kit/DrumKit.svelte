@@ -1,7 +1,10 @@
 <script type="ts">
     import type { DrumKit } from './DrumKit.type';
     import { onMount } from 'svelte';
+    import classNames from 'classnames';
 
+    let isStartAnimation = false;
+    let activeKeyCode = undefined;
     const buttonList: DrumKit.ButtonListItem[] = [
         {
             keyName: 'A',
@@ -87,24 +90,23 @@
             src: 'src/assets/01-jdk/sounds/tink.wav',
         },
     ];
-    const animationClass =
-        ' transition-all scale-125 shadow-2xl shadow-yellow-400 border-yellow-400';
     const buttonClass =
         'key flex flex-col justify-center items-center px-4 py-2 rounded-md border-2 border-black text-white bg-[rgba(0,0,0,0.5)]';
 
-    const startBeat = (dataKey: number) => {
-        const audio = document.querySelector(`audio[data-key="${dataKey}"]`) as HTMLAudioElement;
-        const key = document.querySelector(`button[data-key="${dataKey}"]`);
+    const handleStartBeat = (keyCode: number) => {
+        const audio = document.querySelector(`audio[data-key="${keyCode}"]`) as HTMLAudioElement;
         if (!audio) return;
         audio.currentTime = 0;
         audio.play();
-        key.className = buttonClass + animationClass;
+        activeKeyCode = keyCode;
+        isStartAnimation = true;
     };
 
     const removeTransition = (e: TransitionEvent) => {
         // console.log(e);
         if (e.propertyName !== 'transform') return;
-        (e.target as HTMLElement).className = buttonClass;
+        isStartAnimation = false;
+        activeKeyCode = undefined;
     };
 
     onMount(() => {
@@ -112,10 +114,19 @@
         keys.forEach((key) => key.addEventListener('transitionend', removeTransition));
         window.addEventListener('keydown', (e) => {
             if (buttonList.some((i) => i.dataKey === e.keyCode)) {
-                startBeat(e.keyCode);
+                handleStartBeat(e.keyCode);
             }
         });
     });
+
+    $: animationClass = (isStartAnimation, keyCode) => {
+        const className = ` transition-all scale-125 shadow-2xl shadow-yellow-400 border-yellow-400`;
+
+        if (isStartAnimation && activeKeyCode === keyCode) {
+            return className;
+        }
+        return '';
+    };
 </script>
 
 <section
@@ -124,9 +135,9 @@
     <section class="flex gap-4">
         {#each buttonList as item}
             <button
-                on:click={(e) => startBeat(item.dataKey)}
+                on:click={() => handleStartBeat(item.dataKey)}
                 data-key={item.dataKey}
-                class={buttonClass}
+                class={classNames(buttonClass, animationClass(isStartAnimation, item.dataKey))}
             >
                 <span>{item.keyName}</span>
                 <span class="text-xs text-yellow-400">{item.musicalInstrument}</span>
