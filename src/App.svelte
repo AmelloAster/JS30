@@ -3,6 +3,7 @@
     import DrumKitFC from './pages/01-drum-kit/DrumKit.svelte';
     import CssAndJsClockFC from './pages/02-css+js-clock/CssAndJsClock.svelte';
     import CssVariablesFC from './pages/03-css-variables/CssVariables.svelte';
+    import ArrayCardioDay1FC from './pages/04-array-cardio-day1/ArrayCardioDay1.svelte';
 
     const linkClass = 'hover:text-blue-500 hover:underline';
 </script>
@@ -18,6 +19,7 @@
                     <Link class={linkClass} to="/drum-kit">Drum Kit</Link>
                     <Link class={linkClass} to="/css-js-clock">Css + Js Clock</Link>
                     <Link class={linkClass} to="/css-variables">Css Variables</Link>
+                    <Link class={linkClass} to="/array-cardio-day1">Array Cardio Day1</Link>
                 </nav>
             </section>
         </section>
@@ -30,6 +32,7 @@
             <Link class={linkClass} to="/drum-kit">Drum Kit</Link>
             <Link class={linkClass} to="/css-js-clock">Css + Js Clock</Link>
             <Link class={linkClass} to="/css-variables">Css Variables</Link>
+            <Link class={linkClass} to="/array-cardio-day1">Array Cardio Day1</Link>
         </nav>
     </header>
     <Route path="/drum-kit">
@@ -40,5 +43,8 @@
     </Route>
     <Route path="/css-variables">
         <CssVariablesFC />
+    </Route>
+    <Route path="/array-cardio-day1">
+        <ArrayCardioDay1FC />
     </Route>
 </Router>

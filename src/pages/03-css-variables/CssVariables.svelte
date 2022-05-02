@@ -5,7 +5,7 @@
     };
 </script>
 
-<section class="w-full h-full pt-20 bg-[#193549] text-center' text-white text-3xl">
+<section class="w-full h-full pt-20 bg-[#193549] text-center text-white text-3xl">
     <h2 class="text-center text-6xl mb-6">
         Update CSS Variables with <span class="hl">JS</span>
     </h2>
