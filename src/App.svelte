@@ -4,6 +4,7 @@
     import CssAndJsClockFC from './pages/02-css+js-clock/CssAndJsClock.svelte';
     import CssVariablesFC from './pages/03-css-variables/CssVariables.svelte';
     import ArrayCardioDay1FC from './pages/04-array-cardio-day1/ArrayCardioDay1.svelte';
+    import FlexPanelsImageGalleryFC from './pages/05-flex-panels-image-gallery/FlexPanelsImageGallery.svelte';
 
     const linkClass = 'hover:text-blue-500 hover:underline';
 </script>
@@ -20,6 +21,9 @@
                     <Link class={linkClass} to="/css-js-clock">Css + Js Clock</Link>
                     <Link class={linkClass} to="/css-variables">Css Variables</Link>
                     <Link class={linkClass} to="/array-cardio-day1">Array Cardio Day1</Link>
+                    <Link class={linkClass} to="/flex-panels-image-gallery"
+                        >Flex Panels Image Gallery</Link
+                    >
                 </nav>
             </section>
         </section>
@@ -33,6 +37,7 @@
             <Link class={linkClass} to="/css-js-clock">Css + Js Clock</Link>
             <Link class={linkClass} to="/css-variables">Css Variables</Link>
             <Link class={linkClass} to="/array-cardio-day1">Array Cardio Day1</Link>
+            <Link class={linkClass} to="/flex-panels-image-gallery">Flex Panels Image Gallery</Link>
         </nav>
     </header>
     <Route path="/drum-kit">
@@ -46,5 +51,8 @@
     </Route>
     <Route path="/array-cardio-day1">
         <ArrayCardioDay1FC />
+    </Route>
+    <Route path="/flex-panels-image-gallery">
+        <FlexPanelsImageGalleryFC />
     </Route>
 </Router>
