@@ -5,6 +5,7 @@
     import CssVariablesFC from './pages/03-css-variables/CssVariables.svelte';
     import ArrayCardioDay1FC from './pages/04-array-cardio-day1/ArrayCardioDay1.svelte';
     import FlexPanelsImageGalleryFC from './pages/05-flex-panels-image-gallery/FlexPanelsImageGallery.svelte';
+    import AjaxTypeAheadFC from './pages/06-ajax-type-ahead/AjaxTypeAhead.svelte';
 
     const linkClass = 'hover:text-blue-500 hover:underline';
 </script>
@@ -24,6 +25,7 @@
                     <Link class={linkClass} to="/flex-panels-image-gallery"
                         >Flex Panels Image Gallery</Link
                     >
+                    <Link class={linkClass} to="/ajax-type-ahead">Ajax Type Ahead</Link>
                 </nav>
             </section>
         </section>
@@ -38,6 +40,7 @@
             <Link class={linkClass} to="/css-variables">Css Variables</Link>
             <Link class={linkClass} to="/array-cardio-day1">Array Cardio Day1</Link>
             <Link class={linkClass} to="/flex-panels-image-gallery">Flex Panels Image Gallery</Link>
+            <Link class={linkClass} to="/ajax-type-ahead">Ajax Type Ahead</Link>
         </nav>
     </header>
     <Route path="/drum-kit">
@@ -54,5 +57,8 @@
     </Route>
     <Route path="/flex-panels-image-gallery">
         <FlexPanelsImageGalleryFC />
+    </Route>
+    <Route path="/ajax-type-ahead">
+        <AjaxTypeAheadFC />
     </Route>
 </Router>
